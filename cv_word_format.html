@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Cédric Bertrand</title>
+    <style>
+        body {
+            font-family: Calibri, Arial, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+            color: #333;
+        }
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #2c5282;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #2c5282;
+            font-weight: bold;
+        }
+        .header .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+        .contact-info {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section h2 {
+            font-size: 16px;
+            color: #2c5282;
+            border-bottom: 1px solid #2c5282;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .job-title {
+            font-weight: bold;
+            color: #2c5282;
+            margin-bottom: 5px;
+        }
+        .company {
+            font-weight: bold;
+            color: #333;
+        }
+        .duration {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .job-description {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .tech-stack {
+            background-color: #f7fafc;
+            padding: 8px;
+            border-left: 3px solid #2c5282;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+        .tech-stack strong {
+            color: #2c5282;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .subsection {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2c5282;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .print-button:hover {
+            background: #1a365d;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            body {
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Solutions Architect | Data Streaming Expert</h1>
+            <div class="subtitle">Kafka Expert and Trainer</div>
+            <div class="subtitle">22 years of experience</div>
+            <div class="contact-info">
+                <strong>Cédric Bertrand</strong><br>
+                +33 6 81 22 53 62<br>
+                bertrandcedric.cbe@gmail.com
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p class="job-description">
+                I help organizations unlock the power of real-time data by implementing Apache Kafka-based streaming platforms. As a Solutions Architect, I guide clients through their data streaming journey, from initial architecture design to production deployment, focusing on delivering use cases that create business value.
+            </p>
+            <p class="job-description">
+                My approach combines technical expertise with business insight to ensure that every streaming solution directly contributes to organizational goals and drives measurable outcomes.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+            
+            <div class="job-title">01/2025 - Present</div>
+            <div class="company">Confluent - Solution Architect / Professional Services</div>
+            <div class="job-description">
+                As a Solutions Architect in Confluent's Professional Services team, I help companies transform their business processes using Apache Kafka data streaming solutions.
+            </div>
+            <div class="job-description">
+                <strong>Technical and business expertise:</strong>
+                <ul>
+                    <li>Architecture and implementation of complex business use cases: CDC, real-time integration, event sourcing, CQRS, microservices</li>
+                    <li>Solving business challenges: improving customer experience, optimizing processes, reducing data silos</li>
+                    <li>Multi-environment deployments: on-premise, cloud and hybrid architectures</li>
+                    <li>Strategic consulting on real-time data architecture aligned with business objectives</li>
+                </ul>
+            </div>
+            <div class="tech-stack">
+                <strong>Technologies:</strong> Data Streaming Platform, Confluent Platform and Cloud, GCP, Azure, AWS, Terraform, K8S, Flink
+            </div>
+
+            <div class="job-title">02/2013 - 01/2025 (12 years)</div>
+            <div class="company">Zenika - Consultant</div>
+            <div class="job-description">
+                Audit, consulting, and implementation missions for various clients on data streaming challenges around the Confluent / Kafka platform.
+            </div>
+            <div class="job-description">
+                <strong>Training & Certification Expertise:</strong>
+                <ul>
+                    <li>Confluent Kafka Developer Training (Confluent Certified Trainer)</li>
+                    <li>Confluent Kafka Operations Training (Confluent Certified Trainer)</li>
+                    <li>Confluent Kafka Streams / KSQL Training (Confluent Certified Trainer)</li>
+                    <li>Advanced Confluent Kafka & Optimization Training (Confluent Certified Trainer)</li>
+                    <li>Maven Training / Continuous Integration Training / Git Training</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <strong>Key Client Engagements:</strong>
+                
+                <div class="job-title">05/2023 - 01/2025 (19 months)</div>
+                <div class="company">DECATHLON - Tech Leader of the Custom Growth Streaming Platform</div>
+                <div class="job-description">
+                    Definition and implementation of the streaming platform around the Kafka / Aiven solution and support for development teams.
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Streaming Kafka platform, Aiven, GitOps, Datadog, K8s, Crypto, Strimzi
+                </div>
+
+                <div class="job-title">2024 (1 month)</div>
+                <div class="company">Adventiel - Kafka Implementation Support</div>
+                <div class="job-description">
+                    Support on the implementation of Kafka / Kafka Connect.
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Kafka platform
+                </div>
+
+                <div class="job-title">11/2022 - 04/2023 (6 months)</div>
+                <div class="company">GRDF - Shared Data Streaming Platform</div>
+                <div class="job-description">
+                    Definition and implementation of the streaming platform around the Kafka solution.
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Kafka, Kafka Connect, Confluent platform, Ansible, Supervision
+                </div>
+
+                <div class="job-title">12/2020 - 12/2022 (2 years)</div>
+                <div class="company">NATIXIS - Data Streaming Platform for Financial Remediation</div>
+                <div class="job-description">
+                    Development of the streaming platform to manage remediation and processing of anomalies.
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Kafka, Kafka Stream, Kafka Connect, Confluent platform, OpenShift, XL Deploy, Prometheus, Grafana
+                </div>
+
+                <div class="job-title">June 2022 (1 week)</div>
+                <div class="company">LYDEC (Morocco) - Kafka Platform Audit</div>
+                <div class="job-description">
+                    Audit of the data streaming platform (infrastructure and configuration).
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Kafka, Schema Registry, Kafka Connect, Strimzi, K8s, Spark
+                </div>
+
+                <div class="job-title">April 2022 (1 week)</div>
+                <div class="company">CARREFOUR - Kafka Stream Application Audit</div>
+                <div class="job-description">
+                    Technical audit on the use of Kafka Stream. Study of existing situation and recommendations to improve performance and functional uses.
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Kafka, Kafka Stream
+                </div>
+
+                <div class="job-title">03/2021 - 05/2021 (3 months)</div>
+                <div class="company">RCI Banque - Confluent Cloud / GCP Streaming Platform</div>
+                <div class="job-description">
+                    Development of the streaming platform to manage financial reporting using Confluent Cloud and GCP.
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Kafka, Kafka Stream, Confluent Cloud, GCP, BigQuery, Terraform, GitLab CI, Kubernetes
+                </div>
+
+                <div class="job-title">11/2020 - 12/2020 (2 months)</div>
+                <div class="company">RTE - Stream Processing Architecture Audit</div>
+                <div class="job-description">
+                    Audit and challenge the architecture implemented as part of the Plasma project.
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Kafka, Spark Streaming, Cassandra, Kafka Stream
+                </div>
+
+                <div class="job-title">01/2020 - 08/2021 (20 months)</div>
+                <div class="company">AXA - Production Support and Development Team Assistance</div>
+                <div class="job-description">
+                    Support and assistance for dev and production teams on the Confluent platform. Installation and upgrade of Confluent components.
+                </div>
+                <div class="tech-stack">
+                    <strong>Technologies:</strong> Kafka, Kafka Stream, Confluent, Confluent Cloud
+                </div>
+
+                <div class="job-title">05/2019 - 12/2019 (8 months)</div>
+                <div class="company">RENAULT DIGITAL - Full Track and Trace Streaming Platform</div>
+
+                <div class="job-title">05/2017 - 04/2019 (24 months)</div>
+                <div class="company">GENERALI - Vision 360 Streaming Platform</div>
+
+                <div class="job-title">12/2016 - 05/2017 (6 months)</div>
+                <div class="company">RATP - Continuous Integration Platform Audit</div>
+
+                <div class="job-title">10/2016 - 05/2017 (8 months)</div>
+                <div class="company">BNPP - Hadoop Platform POC Development</div>
+
+                <div class="job-title">06/2016 - 10/2016 (5 months)</div>
+                <div class="company">SACEM - Reporting Platform Development</div>
+
+                <div class="job-title">11/2014 - 05/2016 (19 months)</div>
+                <div class="company">ERDF (LINKY) - CICD Platform Integrator</div>
+
+                <div class="job-title">04/2013 - 10/2014 (19 months)</div>
+                <div class="company">CLOUDWATT - Java JEE Developer</div>
+            </div>
+
+            <div class="job-title">Prior Experience (2003-2013)</div>
+            <div class="company">Java JEE Developer & Technical Lead</div>
+            <div class="job-description">
+                Various companies including CLUBMED, LAFARGE, EULER HERMES (Technical Leader), AFPA, EDF, VOYAGES-SNCF (Technical Leader), THALES, AGF, EUROCIS (military sector), GUTENBERG (transport sector), and PEUGEOT (Study and Development Engineer).
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>International Experience</h2>
+            <div class="job-title">2002-2003</div>
+            <div class="company">International Volunteer, Economic Mission, French Embassy, Copenhagen</div>
+            <div class="job-description">
+                15-month assignment supporting economic and trade relations
+            </div>
+
+            <div class="job-title">2001</div>
+            <div class="company">Dual International Internships</div>
+            <div class="job-description">
+                <ul>
+                    <li>Corporate internship in Denmark</li>
+                    <li>Research laboratory internship in Sweden</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="job-title">06/2002</div>
+            <div class="company">IFMA (French Institute of Advanced Mechanics) - Clermont Ferrand</div>
+            
+            <div class="job-title">1996-1998</div>
+            <div class="company">Preparatory Classes (PTSI and PT*)</div>
+            
+            <div class="job-title">06/1996</div>
+            <div class="company">Scientific Baccalaureate</div>
+        </div>
+
+        <div class="section">
+            <h2>Languages</h2>
+            <ul>
+                <li><strong>French:</strong> Native language</li>
+                <li><strong>English:</strong> Professional proficiency</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
