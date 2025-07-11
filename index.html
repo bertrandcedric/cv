@@ -6,105 +6,368 @@
     <title>CV - Cédric Bertrand</title>
     <style>
         body {
-            font-family: Calibri, Arial, sans-serif;
-            line-height: 1.4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: white;
-            color: #333;
+            background-color: #f8fafc;
+            color: #2d3748;
+            font-size: 14px;
         }
         .container {
             max-width: 210mm;
             margin: 0 auto;
             background: white;
-            padding: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         .header {
             text-align: center;
-            border-bottom: 2px solid #2c5282;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            border-bottom: 3px solid #2c5282;
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .profile-section {
+            flex: 1;
+            text-align: left;
+        }
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(44, 82, 130, 0.3);
+            flex-shrink: 0;
         }
         .header h1 {
-            margin: 0;
-            font-size: 24px;
+            margin: 0 0 8px 0;
+            font-size: 26px;
             color: #2c5282;
-            font-weight: bold;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+            position: relative;
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+        .header h1::after {
+            content: '✨';
+            position: absolute;
+            right: -30px;
+            top: -5px;
+            font-size: 20px;
+            animation: sparkle 2s infinite;
         }
         .header .subtitle {
-            font-size: 14px;
-            color: #666;
-            margin: 5px 0;
+            font-size: 15px;
+            color: #4a5568;
+            margin: 4px 0;
+            font-weight: 500;
         }
         .contact-info {
-            font-size: 12px;
-            color: #666;
-            margin-top: 10px;
+            font-size: 13px;
+            color: #4a5568;
+            margin-top: 12px;
+        }
+        .name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c5282;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+            animation: slideInFromRight 0.8s ease-out 0.2s both;
+        }
+        .location {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #2c5282;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 4px;
+            background: rgba(44, 82, 130, 0.1);
+            transition: all 0.2s ease;
+        }
+        .contact-link:hover {
+            background: rgba(44, 82, 130, 0.2);
+            transform: translateY(-1px);
+        }
+        .contact-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
         .section {
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
         .section h2 {
-            font-size: 16px;
+            font-size: 18px;
             color: #2c5282;
-            border-bottom: 1px solid #2c5282;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-            font-weight: bold;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .section h2:hover {
+            color: #1a365d;
+            transform: translateX(5px);
+        }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #2c5282, #4299e1);
+            animation: expandWidth 0.8s ease-out;
         }
         .job-title {
-            font-weight: bold;
+            font-weight: 600;
             color: #2c5282;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .company {
-            font-weight: bold;
-            color: #333;
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 16px;
+            flex: 1;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .company:hover {
+            color: #2c5282;
+        }
+        .company::before {
+            content: '🏢';
+            position: absolute;
+            left: -25px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: scale(0.8);
+        }
+        .company:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .job-date {
+            font-weight: 600;
+            color: #2c5282;
+            font-size: 14px;
+            white-space: nowrap;
         }
         .duration {
-            color: #666;
+            color: #4a5568;
             font-style: italic;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 13px;
         }
         .job-description {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             text-align: justify;
+            line-height: 1.6;
+            color: #2d3748;
         }
         .tech-stack {
-            background-color: #f7fafc;
-            padding: 8px;
-            border-left: 3px solid #2c5282;
-            margin-bottom: 15px;
-            font-size: 12px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 12px 16px;
+            border-left: 4px solid #2c5282;
+            margin-bottom: 20px;
+            font-size: 13px;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .tech-stack:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 8px rgba(44, 82, 130, 0.2);
+            border-left-width: 6px;
+        }
+        .tech-stack::before {
+            content: '🚀';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .tech-stack:hover::before {
+            opacity: 1;
         }
         .tech-stack strong {
             color: #2c5282;
         }
         ul {
-            margin: 10px 0;
-            padding-left: 20px;
+            margin: 12px 0;
+            padding-left: 24px;
         }
         li {
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            line-height: 1.5;
         }
         .subsection {
-            margin-left: 20px;
+            margin-left: 24px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+        .client-engagement {
             margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: white;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .client-engagement:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .client-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid transparent;
+        }
+        .client-header:hover {
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%);
+        }
+        .client-header.active {
+            border-bottom-color: #e2e8f0;
+        }
+        .client-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 100%;
+            gap: 15px;
+        }
+        .client-name {
+            font-weight: 600;
+            color: #2c5282;
+            font-size: 15px;
+            flex: 1;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .client-name:hover {
+            color: #1a365d;
+            transform: translateX(3px);
+        }
+        .client-name::before {
+            content: '⭐';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: rotate(-45deg) scale(0.8);
+        }
+        .client-header:hover .client-name::before {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+        .client-date {
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        .toggle-icon {
+            margin-left: 10px;
+            font-size: 14px;
+            color: #4a5568;
+            transition: transform 0.3s ease;
+        }
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+        .client-content {
+            max-height: 500px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 20px;
+        }
+        .client-content.closed {
+            max-height: 0;
+            padding: 0 20px;
         }
         .print-button {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #2c5282;
+            background: linear-gradient(135deg, #2c5282 0%, #2a4365 100%);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
         }
         .print-button:hover {
-            background: #1a365d;
+            background: linear-gradient(135deg, #1a365d 0%, #1a202c 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .collapse-all-button {
+            background: linear-gradient(135deg, #2c5282 0%, #2a4365 100%);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            float: right;
+            transition: all 0.2s ease;
+        }
+        .collapse-all-button:hover {
+            background: linear-gradient(135deg, #1a365d 0%, #1a202c 100%);
+            transform: translateY(-1px);
         }
         @media print {
             .print-button {
@@ -112,12 +375,98 @@
             }
             body {
                 padding: 0;
+                background: white;
             }
             .container {
                 box-shadow: none;
-                padding: 0;
+                padding: 20px;
+                border-radius: 0;
+            }
+            .header {
+                background: white;
+                border-radius: 0;
+            }
+            .subsection {
+                background: white;
+                border: none;
+            }
+            /* Hide animations and effects in print */
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            .header h1::after,
+            .tech-stack::before,
+            .company::before,
+            .client-name::before {
+                display: none !important;
             }
         }
+        
+        /* Fun animations */
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1) rotate(180deg);
+            }
+        }
+        
+        @keyframes expandWidth {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 60px;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Add staggered animation to sections */
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
@@ -125,11 +474,27 @@
     
     <div class="container">
         <div class="header">
-            <h1>Solutions Architect | Data Streaming Expert</h1>
-            <div class="subtitle">Kafka Expert and Trainer</div>
-            <div class="subtitle">22 years of experience</div>
-            <div class="contact-info">
-                <strong>Cédric Bertrand</strong><br>
+            <img src="profil.png" alt="Cédric Bertrand" class="profile-photo">
+            <div class="profile-section">
+                <h1>Solutions Architect | Data Streaming Expert</h1>
+                <div class="name">Cédric Bertrand</div>
+                <div class="location">Paris Area, France</div>
+                <div class="subtitle">Kafka Expert and Trainer</div>
+                <div class="subtitle">22 years of experience</div>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/vinte" target="_blank" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        https://www.linkedin.com/in/vinte
+                    </a>
+                    <a href="https://github.com/bertrandcedric" target="_blank" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        https://github.com/bertrandcedric
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -146,8 +511,10 @@
         <div class="section">
             <h2>Professional Experience</h2>
             
-            <div class="job-title">01/2025 - Present</div>
-            <div class="company">Confluent - Solution Architect / Professional Services</div>
+            <div class="job-header">
+                <div class="company">Confluent - Solution Architect / Professional Services</div>
+                <div class="job-date">01/2025 - Present</div>
+            </div>
             <div class="job-description">
                 As a Solutions Architect in Confluent's Professional Services team, I help companies transform their business processes using Apache Kafka data streaming solutions.
             </div>
@@ -164,8 +531,10 @@
                 <strong>Technologies:</strong> Data Streaming Platform, Confluent Platform and Cloud, GCP, Azure, AWS, Terraform, K8S, Flink
             </div>
 
-            <div class="job-title">02/2013 - 01/2025 (12 years)</div>
-            <div class="company">Zenika - Consultant</div>
+            <div class="job-header">
+                <div class="company">Zenika - Consultant</div>
+                <div class="job-date">02/2013 - 01/2025 (12 years)</div>
+            </div>
             <div class="job-description">
                 Audit, consulting, and implementation missions for various clients on data streaming challenges around the Confluent / Kafka platform.
             </div>
@@ -182,127 +551,374 @@
 
             <div class="subsection">
                 <strong>Key Client Engagements:</strong>
+                <button class="collapse-all-button" onclick="toggleAll()">Collapse All</button>
+                <div style="clear: both;"></div>
                 
-                <div class="job-title">05/2023 - 01/2025 (19 months)</div>
-                <div class="company">DECATHLON - Tech Leader of the Custom Growth Streaming Platform</div>
-                <div class="job-description">
-                    Definition and implementation of the streaming platform around the Kafka / Aiven solution and support for development teams.
-                </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Streaming Kafka platform, Aiven, GitOps, Datadog, K8s, Crypto, Strimzi
-                </div>
-
-                <div class="job-title">2024 (1 month)</div>
-                <div class="company">Adventiel - Kafka Implementation Support</div>
-                <div class="job-description">
-                    Support on the implementation of Kafka / Kafka Connect.
-                </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Kafka platform
-                </div>
-
-                <div class="job-title">11/2022 - 04/2023 (6 months)</div>
-                <div class="company">GRDF - Shared Data Streaming Platform</div>
-                <div class="job-description">
-                    Definition and implementation of the streaming platform around the Kafka solution.
-                </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Kafka, Kafka Connect, Confluent platform, Ansible, Supervision
-                </div>
-
-                <div class="job-title">12/2020 - 12/2022 (2 years)</div>
-                <div class="company">NATIXIS - Data Streaming Platform for Financial Remediation</div>
-                <div class="job-description">
-                    Development of the streaming platform to manage remediation and processing of anomalies.
-                </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Kafka, Kafka Stream, Kafka Connect, Confluent platform, OpenShift, XL Deploy, Prometheus, Grafana
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">DECATHLON - Tech Leader of the Custom Growth Streaming Platform</div>
+                            <div class="client-date">05/2023 - 01/2025 (19 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Definition and implementation of the streaming platform around the Kafka / Aiven solution and support for development teams.
+                        </div>
+                        <div class="job-description">
+                            <strong>Mission:</strong>
+                            <ul>
+                                <li>Resources management in self service mode</li>
+                                <li>Data governance</li>
+                                <li>Data encryption</li>
+                                <li>Platform management and monitoring</li>
+                                <li>Documentation and demo for use case supported by the platform</li>
+                                <li>Tooling in order to help OPS and Developer</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Streaming Kafka platform, Aiven, GitOps, Datadog, K8s, Crypto, Strimzi
+                        </div>
+                    </div>
                 </div>
 
-                <div class="job-title">June 2022 (1 week)</div>
-                <div class="company">LYDEC (Morocco) - Kafka Platform Audit</div>
-                <div class="job-description">
-                    Audit of the data streaming platform (infrastructure and configuration).
-                </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Kafka, Schema Registry, Kafka Connect, Strimzi, K8s, Spark
-                </div>
-
-                <div class="job-title">April 2022 (1 week)</div>
-                <div class="company">CARREFOUR - Kafka Stream Application Audit</div>
-                <div class="job-description">
-                    Technical audit on the use of Kafka Stream. Study of existing situation and recommendations to improve performance and functional uses.
-                </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Kafka, Kafka Stream
-                </div>
-
-                <div class="job-title">03/2021 - 05/2021 (3 months)</div>
-                <div class="company">RCI Banque - Confluent Cloud / GCP Streaming Platform</div>
-                <div class="job-description">
-                    Development of the streaming platform to manage financial reporting using Confluent Cloud and GCP.
-                </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Kafka, Kafka Stream, Confluent Cloud, GCP, BigQuery, Terraform, GitLab CI, Kubernetes
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">Adventiel - Kafka Implementation Support</div>
+                            <div class="client-date">2024 (1 month)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Support on the implementation of Kafka / Kafka Connect.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Kafka platform
+                        </div>
+                    </div>
                 </div>
 
-                <div class="job-title">11/2020 - 12/2020 (2 months)</div>
-                <div class="company">RTE - Stream Processing Architecture Audit</div>
-                <div class="job-description">
-                    Audit and challenge the architecture implemented as part of the Plasma project.
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">GRDF - Shared Data Streaming Platform</div>
+                            <div class="client-date">11/2022 - 04/2023 (6 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Definition and implementation of the streaming platform around the Kafka solution.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Kafka, Kafka Connect, Confluent platform, Ansible, Supervision
+                        </div>
+                    </div>
                 </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Kafka, Spark Streaming, Cassandra, Kafka Stream
+
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">NATIXIS - Data Streaming Platform for Financial Remediation</div>
+                            <div class="client-date">12/2020 - 12/2022 (2 years)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Development of the streaming platform to manage remediation and processing of anomalies.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Kafka, Kafka Stream, Kafka Connect, Confluent platform, OpenShift, XL Deploy, Prometheus, Grafana
+                        </div>
+                    </div>
                 </div>
 
-                <div class="job-title">01/2020 - 08/2021 (20 months)</div>
-                <div class="company">AXA - Production Support and Development Team Assistance</div>
-                <div class="job-description">
-                    Support and assistance for dev and production teams on the Confluent platform. Installation and upgrade of Confluent components.
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">LYDEC (Morocco) - Kafka Platform Audit</div>
+                            <div class="client-date">June 2022 (1 week)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Audit of the data streaming platform (infrastructure and configuration).
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Kafka, Schema Registry, Kafka Connect, Strimzi, K8s, Spark
+                        </div>
+                    </div>
                 </div>
-                <div class="tech-stack">
-                    <strong>Technologies:</strong> Kafka, Kafka Stream, Confluent, Confluent Cloud
+
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">CARREFOUR - Kafka Stream Application Audit</div>
+                            <div class="client-date">April 2022 (1 week)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Technical audit on the use of Kafka Stream. 
+                        </div>
+                        <div class="job-description">
+                            Study of existing situation and recommendations to improve performance and functional uses.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Kafka, Kafka Stream
+                        </div>
+                    </div>
                 </div>
 
-                <div class="job-title">05/2019 - 12/2019 (8 months)</div>
-                <div class="company">RENAULT DIGITAL - Full Track and Trace Streaming Platform</div>
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">RCI Banque - Confluent Cloud / GCP Streaming Platform</div>
+                            <div class="client-date">03/2021 - 05/2021 (3 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Development of the streaming platform to manage financial reporting using Confluent Cloud and GCP.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Kafka, Kafka Stream, Confluent Cloud, GCP, BigQuery, Terraform, GitLab CI, Kubernetes
+                        </div>
+                    </div>
+                </div>
 
-                <div class="job-title">05/2017 - 04/2019 (24 months)</div>
-                <div class="company">GENERALI - Vision 360 Streaming Platform</div>
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">RTE - Stream Processing Architecture Audit</div>
+                            <div class="client-date">11/2020 - 12/2020 (2 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Audit and challenge the architecture implemented as part of the Plasma project.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Kafka, Spark Streaming, Cassandra, Kafka Stream
+                        </div>
+                    </div>
+                </div>
 
-                <div class="job-title">12/2016 - 05/2017 (6 months)</div>
-                <div class="company">RATP - Continuous Integration Platform Audit</div>
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">AXA - Production Support and Development Team Assistance</div>
+                            <div class="client-date">01/2020 - 08/2021 (20 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Support and assistance for dev and production teams on the Confluent platform. 
+                        </div>
+                        <div class="job-description">
+                            Installation and upgrade of Confluent components.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Kafka, Kafka Stream, Confluent Platform, Confluent Cloud
+                        </div>
+                    </div>
+                </div>
 
-                <div class="job-title">10/2016 - 05/2017 (8 months)</div>
-                <div class="company">BNPP - Hadoop Platform POC Development</div>
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">RENAULT DIGITAL - Full Track and Trace Streaming Platform</div>
+                            <div class="client-date">05/2019 - 12/2019 (8 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Development and implementation of an automotive data centralization platform based on the Google GCP cloud offering.
+                        </div>
+                        <div class="job-description">
+                            Ingestion of data flows from different Renault factories to enable the creation of a digital avatar of the vehicle.
+                        </div>
+                        <div class="job-description">
+                            Provide platform users with the opportunity to plug in new streams.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Spark Streaming, GCP, Dataproc, Airflow, Kubernetes, Scala, GitLab CI, Bigquery, Apache Beam
+                        </div>
+                    </div>
+                </div>
 
-                <div class="job-title">06/2016 - 10/2016 (5 months)</div>
-                <div class="company">SACEM - Reporting Platform Development</div>
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">GENERALI - Vision 360 Streaming Platform</div>
+                            <div class="client-date">05/2017 - 04/2019 (24 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Development and operational management of a Vision 360 application for clients.
+                        </div>
+                        <div class="job-description">
+                            Setting up the streaming platform around Kafka with KafkaStream.
+                        </div>
+                        <div class="job-description">
+                            Feeding from IBM changed data capture and exposed customer view in Cassandra.
+                        </div>
+                        <div class="job-description">
+                            Implementation of the tools allowing the build and deployment of applications in a Kubernetes environment.
+                        </div>
+                        <div class="job-description">
+                            Feed POC to Hadoop.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Git, Ansible, Jenkins, Kafka, KafkaStream, Docker, Kubernetes, Cassandra, CDC IBM, Cloud Azure, Prometheus, Grafana
+                        </div>
+                    </div>
+                </div>
 
-                <div class="job-title">11/2014 - 05/2016 (19 months)</div>
-                <div class="company">ERDF (LINKY) - CICD Platform Integrator</div>
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">RATP - Continuous Integration Platform Audit</div>
+                            <div class="client-date">12/2016 - 05/2017 (6 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Carrying out an audit on the factory (Continuous Integration platform) and implementation of recommendations for the management of Play2 and Android applications.
+                        </div>
+                        <div class="job-description">
+                            Implementation of Ansible configuration management tools. Using Docker to help develop Ansible playbooks.
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Git, Ansible, Jenkins, Gitlab, Sonar, Redmine, Artifactory, Docker, Play2
+                        </div>
+                    </div>
+                </div>
 
-                <div class="job-title">04/2013 - 10/2014 (19 months)</div>
-                <div class="company">CLOUDWATT - Java JEE Developer</div>
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">BNPP - Hadoop Platform POC Development</div>
+                            <div class="client-date">10/2016 - 05/2017 (8 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Provision of a 360 vision application for the client based on the Hadoop IBM BigInsights platform. The development of this application must make it possible to validate the technical implementation of the Hadoop solution.
+                        </div>
+                        <div class="job-description">
+                            <strong>Mission:</strong>
+                            <ul>
+                                <li>Development of a tool allowing the loading of data on HDFS and Spark jobs for feeding Hbase tables</li>
+                                <li>Implementation of a real-time request processing process with Kafka</li>
+                                <li>Development of monitoring tools</li>
+                                <li>Automation of deployments</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Hadoop, IBM BigInsights, HDFS, Spark, HBase, Kafka, Real-time Processing, Monitoring, Deployment Automation
+                        </div>
+                    </div>
+                </div>
+
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">SACEM - Reporting Platform Development</div>
+                            <div class="client-date">06/2016 - 10/2016 (5 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Development of a platform allowing the collection of declarations and reporting on this data in a Big Data environment.
+                        </div>
+                        <div class="job-description">
+                            <strong>Mission:</strong>
+                            <ul>
+                                <li>Spark job development for new reporting screens</li>
+                                <li>Optimization of file processing by Spark for loading into an Elasticsearch cluster</li>
+                                <li>Performance analysis on the use of the Elasticsearch cluster</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <strong>Technologies:</strong> Git, Scala, Elasticsearch, Kafka, Kibana, Spark, Ansible, GoCD
+                        </div>
+                    </div>
+                </div>
+
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">ERDF (LINKY) - CICD Platform Integrator</div>
+                            <div class="client-date">11/2014 - 05/2016 (19 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Integration and optimization of continuous integration and deployment platform for the smart meter project.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="client-engagement">
+                    <div class="client-header" onclick="toggleClient(this)">
+                        <div class="client-title">
+                            <div class="client-name">CLOUDWATT - Java JEE Developer</div>
+                            <div class="client-date">04/2013 - 10/2014 (19 months)</div>
+                        </div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="client-content">
+                        <div class="job-description">
+                            Development of cloud infrastructure management platform using Java JEE technologies.
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="job-title">Prior Experience (2003-2013)</div>
+            <div class="job-title">Valtech Experience (07/2007 - 01/2013)</div>
             <div class="company">Java JEE Developer & Technical Lead</div>
             <div class="job-description">
-                Various companies including CLUBMED, LAFARGE, EULER HERMES (Technical Leader), AFPA, EDF, VOYAGES-SNCF (Technical Leader), THALES, AGF, EUROCIS (military sector), GUTENBERG (transport sector), and PEUGEOT (Study and Development Engineer).
+                Various companies including CLUBMED, LAFARGE, EULER HERMES (Technical Leader), AFPA, EDF, VOYAGES-SNCF (Technical Leader), THALES.
+            </div>
+
+            <div class="job-title">Prior Experience (2003-2007)</div>
+            <div class="company">Java JEE Developer & Technical Lead</div>
+            <div class="job-description">
+                AGF, EUROCIS (military sector), GUTENBERG (transport sector), and PEUGEOT (Study and Development Engineer).
             </div>
         </div>
 
         <div class="section">
             <h2>International Experience</h2>
-            <div class="job-title">2002-2003</div>
-            <div class="company">International Volunteer, Economic Mission, French Embassy, Copenhagen</div>
+            <div class="job-header">
+                <div class="company">International Volunteer, Economic Mission, French Embassy, Copenhagen</div>
+                <div class="job-date">2002-2003</div>
+            </div>
             <div class="job-description">
                 15-month assignment supporting economic and trade relations
             </div>
 
-            <div class="job-title">2001</div>
-            <div class="company">Dual International Internships</div>
+            <div class="job-header">
+                <div class="company">Dual International Internships</div>
+                <div class="job-date">2001</div>
+            </div>
             <div class="job-description">
                 <ul>
                     <li>Corporate internship in Denmark</li>
@@ -313,14 +929,20 @@
 
         <div class="section">
             <h2>Education</h2>
-            <div class="job-title">06/2002</div>
-            <div class="company">IFMA (French Institute of Advanced Mechanics) - Clermont Ferrand</div>
+            <div class="job-header">
+                <div class="company">IFMA (French Institute of Advanced Mechanics) - Clermont Ferrand</div>
+                <div class="job-date">06/2002</div>
+            </div>
             
-            <div class="job-title">1996-1998</div>
-            <div class="company">Preparatory Classes (PTSI and PT*)</div>
+            <div class="job-header">
+                <div class="company">Preparatory Classes (PTSI and PT*)</div>
+                <div class="job-date">1996-1998</div>
+            </div>
             
-            <div class="job-title">06/1996</div>
-            <div class="company">Scientific Baccalaureate</div>
+            <div class="job-header">
+                <div class="company">Scientific Baccalauréat</div>
+                <div class="job-date">06/1996</div>
+            </div>
         </div>
 
         <div class="section">
@@ -331,5 +953,47 @@
             </ul>
         </div>
     </div>
+
+    <script>
+        function toggleClient(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.toggle-icon');
+            const isClosed = content.classList.contains('closed');
+            
+            if (isClosed) {
+                content.classList.remove('closed');
+                icon.classList.remove('active');
+                header.classList.remove('active');
+            } else {
+                content.classList.add('closed');
+                icon.classList.add('active');
+                header.classList.add('active');
+            }
+        }
+
+        function toggleAll() {
+            const allContents = document.querySelectorAll('.client-content');
+            const allIcons = document.querySelectorAll('.toggle-icon');
+            const allHeaders = document.querySelectorAll('.client-header');
+            const button = document.querySelector('.collapse-all-button');
+            
+            // Check if any sections are open (not closed)
+            const hasOpenSections = Array.from(allContents).some(content => !content.classList.contains('closed'));
+            
+            if (hasOpenSections) {
+                // Close all sections
+                allContents.forEach(content => content.classList.add('closed'));
+                allIcons.forEach(icon => icon.classList.add('active'));
+                allHeaders.forEach(header => header.classList.add('active'));
+                button.textContent = 'Expand All';
+            } else {
+                // Open all sections
+                allContents.forEach(content => content.classList.remove('closed'));
+                allIcons.forEach(icon => icon.classList.remove('active'));
+                allHeaders.forEach(header => header.classList.remove('active'));
+                button.textContent = 'Collapse All';
+            }
+        }
+    </script>
 </body>
 </html>
