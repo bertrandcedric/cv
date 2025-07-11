@@ -347,8 +347,30 @@
             font-weight: 600;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.2s ease;
+            z-index: 1000;
         }
         .print-button:hover {
+            background: linear-gradient(135deg, #1a365d 0%, #1a202c 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #2c5282 0%, #2a4365 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            z-index: 1000;
+        }
+        .theme-toggle:hover {
             background: linear-gradient(135deg, #1a365d 0%, #1a202c 100%);
             transform: translateY(-1px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
@@ -370,7 +392,7 @@
             transform: translateY(-1px);
         }
         @media print {
-            .print-button {
+            .print-button, .theme-toggle {
                 display: none;
             }
             body {
@@ -401,6 +423,305 @@
             .client-name::before {
                 display: none !important;
             }
+        }
+        
+        /* Mobile responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 13px;
+            }
+            
+            .container {
+                padding: 20px;
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+                white-space: normal;
+                text-align: center;
+            }
+            
+            .header h1::after {
+                display: none;
+            }
+            
+            .name {
+                font-size: 18px;
+                text-align: center;
+            }
+            
+            .location {
+                text-align: center;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            
+            .contact-link {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .job-date {
+                align-self: flex-end;
+                margin-top: -5px;
+            }
+            
+            .client-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .client-date {
+                align-self: flex-end;
+                margin-top: -5px;
+            }
+            
+            .print-button {
+                top: 10px;
+                right: 10px;
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            
+            .theme-toggle {
+                top: 10px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            
+            .collapse-all-button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .subsection {
+                margin-left: 0;
+                padding: 15px;
+            }
+            
+            .client-header {
+                padding: 12px 15px;
+            }
+            
+            .client-content {
+                padding: 15px;
+            }
+            
+            .tech-stack {
+                margin-bottom: 15px;
+                padding: 10px 12px;
+            }
+            
+            .tech-stack:hover {
+                transform: none;
+            }
+            
+            .section h2:hover {
+                transform: none;
+            }
+            
+            .company:hover::before,
+            .tech-stack::before,
+            .client-name::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+                font-size: 12px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .header h1 {
+                font-size: 18px;
+            }
+            
+            .name {
+                font-size: 16px;
+            }
+            
+            .section h2 {
+                font-size: 16px;
+            }
+            
+            .print-button,
+            .theme-toggle {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+        }
+        
+        /* Dark theme styles */
+        .dark-theme {
+            background-color: #0a0e1a;
+            color: #e2e8f0;
+        }
+        
+        .dark-theme .container {
+            background: #1a1f2e;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        
+        .dark-theme .header {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+            border-bottom-color: #4299e1;
+        }
+        
+        .dark-theme .section h2 {
+            color: #63b3ed;
+            border-bottom-color: #2d3748;
+        }
+        
+        .dark-theme .section h2::after {
+            background: linear-gradient(90deg, #63b3ed, #90cdf4);
+        }
+        
+        .dark-theme .job-title {
+            color: #63b3ed;
+        }
+        
+        .dark-theme .company {
+            color: #e2e8f0;
+        }
+        
+        .dark-theme .company:hover {
+            color: #63b3ed;
+        }
+        
+        .dark-theme .job-date {
+            color: #90cdf4;
+        }
+        
+        .dark-theme .job-description {
+            color: #cbd5e0;
+        }
+        
+        .dark-theme .name {
+            color: #63b3ed;
+        }
+        
+        .dark-theme .location,
+        .dark-theme .header .subtitle {
+            color: #a0aec0;
+        }
+        
+        .dark-theme .contact-link {
+            background: rgba(99, 179, 237, 0.2);
+            color: #90cdf4;
+        }
+        
+        .dark-theme .contact-link:hover {
+            background: rgba(99, 179, 237, 0.3);
+        }
+        
+        .dark-theme .tech-stack {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+            border-left-color: #63b3ed;
+            color: #cbd5e0;
+        }
+        
+        .dark-theme .tech-stack strong {
+            color: #90cdf4;
+        }
+        
+        .dark-theme .subsection {
+            background: #1a1f2e;
+            border-color: #2d3748;
+        }
+        
+        .dark-theme .client-engagement {
+            background: #1a1f2e;
+            border-color: #2d3748;
+        }
+        
+        .dark-theme .client-header {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+        }
+        
+        .dark-theme .client-header:hover {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        }
+        
+        .dark-theme .client-name {
+            color: #90cdf4;
+        }
+        
+        .dark-theme .client-name:hover {
+            color: #63b3ed;
+        }
+        
+        .dark-theme .client-date {
+            color: #a0aec0;
+        }
+        
+        .dark-theme .toggle-icon {
+            color: #a0aec0;
+        }
+        
+        .dark-theme .collapse-all-button {
+            background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+        }
+        
+        .dark-theme .collapse-all-button:hover {
+            background: linear-gradient(135deg, #2a69ac 0%, #1a365d 100%);
+        }
+        
+        .dark-theme .theme-toggle {
+            background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+        }
+        
+        .dark-theme .theme-toggle:hover {
+            background: linear-gradient(135deg, #2a69ac 0%, #1a365d 100%);
+        }
+        
+        .dark-theme .print-button {
+            background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+        }
+        
+        .dark-theme .print-button:hover {
+            background: linear-gradient(135deg, #2a69ac 0%, #1a365d 100%);
         }
         
         /* Fun animations */
@@ -457,6 +778,13 @@
             }
         }
         
+        /* Add smooth transitions for theme switching */
+        body, .container, .header, .section h2, .company, .job-description, 
+        .tech-stack, .subsection, .client-engagement, .client-header, 
+        .client-name, .contact-link, .theme-toggle, .print-button, 
+        .collapse-all-button {
+            transition: all 0.3s ease;
+        }
         /* Add staggered animation to sections */
         .section {
             animation: fadeInUp 0.6s ease-out;
@@ -471,6 +799,9 @@
 </head>
 <body>
     <button class="print-button" onclick="window.print()">Print / Save as PDF</button>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="theme-icon">🌙</span>
+    </button>
     
     <div class="container">
         <div class="header">
@@ -994,6 +1325,37 @@
                 button.textContent = 'Collapse All';
             }
         }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const isDark = body.classList.contains('dark-theme');
+            
+            if (isDark) {
+                // Switch to light theme
+                body.classList.remove('dark-theme');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                // Switch to dark theme
+                body.classList.add('dark-theme');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeIcon.textContent = '☀️';
+            } else {
+                themeIcon.textContent = '🌙';
+            }
+        });
     </script>
 </body>
 </html>
